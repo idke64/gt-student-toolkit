@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --surface-100: 240, 240, 240;
+  --surface-100: 248, 248, 248;
   --surface-200: 254, 254, 254;
   --surface-300: 230, 230, 230;
   --border: 230, 230, 230;
