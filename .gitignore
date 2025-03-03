@@ -23,3 +23,6 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 bun.lockb
+
+school_resources_model
+vector_db.pkl
