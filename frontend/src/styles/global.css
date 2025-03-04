@@ -1,19 +1,25 @@
-@import "tailwindcss";
+@import "tailwindcss/preflight";
 
 :root {
+  --primary-100: 236, 209, 71;
+  --primary-200: 231, 216, 9;
+  --primary-300: 96, 92, 48;
   --surface-100: 248, 248, 248;
   --surface-200: 254, 254, 254;
   --surface-300: 230, 230, 230;
   --border: 230, 230, 230;
   --fg-100: 0, 0, 0;
   --fg-200: 47, 51, 54;
-  --fg-300: 85, 85, 95;
+  --fg-300: 90, 90, 95;
   --fg-400: 255, 255, 255;
   --themeicon: 114, 150, 171;
   --btn-hover: 240, 240, 240;
 }
 
 .light {
+  --primary-100: 236, 209, 71;
+  --primary-200: 231, 216, 9;
+  --primary-300: 96, 92, 48;
   --surface-100: 240, 240, 240;
   --surface-200: 254, 254, 254;
   --surface-300: 230, 230, 230;
@@ -27,6 +33,9 @@
 }
 
 .dark {
+  --primary-100: 236, 209, 71;
+  --primary-200: 231, 216, 9;
+  --primary-300: 96, 92, 48;
   --surface-100: 45, 45, 50;
   --surface-200: 50, 50, 56;
   --surface-300: 30, 30, 30;
@@ -39,28 +48,43 @@
   --btn-hover: 65, 65, 65;
 }
 
+.btn-primary {
+  @apply rounded-full bg-primary-100 text-white hover:bg-primary-100/70 duration-200 font-semibold active:scale-90 text-sm flex items-center justify-center;
+}
+
+.btn-secondary {
+  @apply text-primary-200 text-sm hover:text-primary-200/70 duration-200 font-semibold flex items-center justify-center;
+}
+
+.nav-link {
+  @apply relative text-fg-300 text-sm after:absolute after:h-0.5 after:w-0 after:bg-fg-300 after:rounded-full after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 hover:after:w-full after:bg-primary-300;
+}
+
 html {
-  @apply overflow-x-hidden overflow-y-scroll bg-[rgba(var(--surface-100))];
+  @apply overflow-x-hidden overflow-y-scroll bg-surface-100 text-fg-300;
 }
 
 h1 {
-  @apply text-6xl font-bold max-sm:text-4xl;
+  @apply text-6xl font-bold max-sm:text-4xl text-fg-100;
 }
 h2 {
-  @apply text-4xl font-bold max-sm:text-3xl;
+  @apply text-4xl font-bold max-sm:text-3xl text-fg-100;
 }
 h3 {
-  @apply text-3xl font-bold max-sm:text-2xl;
+  @apply text-3xl font-bold max-sm:text-2xl text-fg-200;
 }
 h4 {
-  @apply text-2xl font-bold;
+  @apply text-2xl font-bold text-fg-200;
 }
 h5 {
-  @apply text-xl font-medium;
+  @apply text-xl font-medium text-fg-200;
 }
 h6 {
   @apply text-lg font-medium;
 }
 p {
   @apply text-sm;
+}
+hr {
+  @apply border-border;
 }
