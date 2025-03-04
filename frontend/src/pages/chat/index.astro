@@ -4,17 +4,20 @@ import Chat from '@components/chat/Chat.astro';
 import Layout from '@layouts/Layout.astro';
 import '@styles/global.css';
 import ChatInput from '@components/chat/ChatInput.astro';
+import Message from '@components/chat/Message.astro';
+import Response from '@components/chat/Response.astro';
+
 ---
 <Layout>
 	<Sidebar>
-		<Chat/>
-		<Chat/>
-		<Chat/>
+		<Chat title="GT Event"/>
+		<Chat title="GT Research"/>
+		<Chat title="GT Barcelona"/>
 	</Sidebar>
-	<div class="ml-64 h-[calc(100vh-56p)]">
-		<div class="w-full p-4 h-full flex flex-col justify-between">
-			<div>sdsjidjs</div>
-	<ChatInput/>
+	<div class="ml-64 h-[calc(100vh-56px)]">
+		<div class="w-full p-6 h-full flex flex-col justify-between">
+            <div></div>
+			<ChatInput/>
 		</div>
-</div>
+	</div>
 </Layout>

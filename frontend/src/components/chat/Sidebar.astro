@@ -1,11 +1,21 @@
-<nav class="h-full fixed w-64 bg-white border-r border-neutral-300">
-    <div class="flex flex-col gap-y-4 p-4">
-        <div class="flex items-center justify-between">
-            <button>Expand</button>
-            <button>New</button>
+<nav class="h-full fixed w-64 bg-surface-200 shadow border-t border-border">
+    <div class="flex flex-col justify-between h-[calc(100vh-56px)]">
+        <div class="flex flex-col gap-y-4 p-4">
+            <div class="flex gap-x-2 justify-center items-start py-2">
+                <h5>GT Student Toolkit</h5>
+            </div>
+            <button class="h-9 btn-primary">+ New Chat</button>
+            <hr/>
+            <div class="flex justify-between items-center"><p>Your conversations</p><button class="btn-secondary">Clear all</button></div>
+            <hr/>
+            <div class="flex flex-col gap-y-3">
+                <slot />
+            </div>
         </div>
-        <div class="flex flex-col gap-y-3">
-            <slot />
+        <div class="flex flex-col gap-y-3 p-4">
+            <button class="rounded-full flex border-border border px-3 h-9 items-center">Settings</button>
+            <button class="rounded-full flex border-border border px-3 h-9 items-center">User</button>
         </div>
     </div>
+    
 </nav>

@@ -2,14 +2,15 @@
 import { defineConfig } from "astro/config";
 
 import react from "@astrojs/react";
-import tailwindcss from "@tailwindcss/vite";
+import tailwind from "@astrojs/tailwind";
 import path from "node:path";
 
 export default defineConfig({
-  integrations: [react()],
+  output: "server",
+  integrations: [react(), tailwind({})],
 
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwind()],
     resolve: {
       alias: {
         "@components": path.resolve("./src/components"),
