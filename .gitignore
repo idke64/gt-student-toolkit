@@ -26,3 +26,4 @@ bun.lockb
 
 school_resources_model
 vector_db.pkl
+*.pkl
