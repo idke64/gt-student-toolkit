@@ -1,4 +1,6 @@
-@import "tailwindcss/preflight";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --primary-100: 236, 209, 71;
