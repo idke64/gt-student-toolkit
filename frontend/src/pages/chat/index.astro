@@ -1,23 +1,29 @@
 ---
-import Sidebar from '@components/chat/Sidebar.astro';
-import Chat from '@components/chat/Chat.astro';
 import Layout from '@layouts/Layout.astro';
-import '@styles/global.css';
-import ChatInput from '@components/chat/ChatInput.astro';
-import Message from '@components/chat/Message.astro';
-import Response from '@components/chat/Response.astro';
-
 ---
-<Layout>
-	<Sidebar>
-		<Chat title="GT Event"/>
-		<Chat title="GT Research"/>
-		<Chat title="GT Barcelona"/>
-	</Sidebar>
-	<div class="ml-64 h-[calc(100vh-56px)]">
-		<div class="w-full p-6 h-full flex flex-col justify-between">
-            <div></div>
-			<ChatInput/>
-		</div>
-	</div>
+
+<Layout title="Chat">
+  <div class="flex flex-col items-center justify-center h-screen bg-gray-50 p-4">
+    <div class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full text-center">
+      <div class="mb-6">
+        <div class="bg-yellow-400 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+          </svg>
+        </div>
+        <h1 class="text-2xl font-bold text-gray-800">Welcome to GT Chat</h1>
+      </div>
+      
+      <p class="text-gray-600 mb-6">Select a conversation from the sidebar or start a new chat</p>
+      
+      <div class="space-y-3">
+        <a href="/chat/gt-barcelona" class="block bg-gray-100 hover:bg-gray-200 rounded-lg py-3 px-4 transition-colors">
+          GT Barcelona Program
+        </a>
+        <a href="/chat/new" class="block bg-yellow-400 hover:bg-yellow-500 text-black rounded-lg py-3 px-4 font-medium transition-colors">
+          + New Conversation
+        </a>
+      </div>
+    </div>
+  </div>
 </Layout>

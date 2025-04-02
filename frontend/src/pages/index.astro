@@ -1,12 +1,59 @@
 ---
-import Layout from '@layouts/Layout.astro';
-import '@styles/global.css';
+import Navbar from '@components/ui/Navbar.astro';
 ---
-<Layout>
-	<div class="h-[100vh] flex items-center justify-between px-8">
-		<div class="">
-			<h1>GT Student Toolkit</h1>
-		</div>
-		
-	</div>
-</Layout>
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>GT Student Toolkit</title>
+    </head>
+    <body class="bg-gray-50">
+        <Navbar />
+        <div class="flex items-center justify-center min-h-[calc(100vh-56px)] p-4">
+            <div class="bg-white w-full max-w-6xl flex shadow-lg rounded-lg overflow-hidden">
+                <!-- Left side with image -->
+                <div class="hidden md:block w-1/2 bg-gray-200">
+                    <img src="/images/georgiaTechImage.jpg" alt="GT Campus" class="w-full h-full object-cover">
+                </div>
+                
+                <!-- Right side with content -->
+                <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                    <!-- Logo and Title -->
+                    <div class="flex items-center mb-6">
+                        <div class="bg-yellow-400 w-10 h-10 flex justify-center items-center rounded-lg mr-3">
+                            <div class="w-6 h-6 bg-black opacity-70"></div>
+                        </div>
+                        <h1 class="text-xl font-bold text-gray-700">GT Student Toolkit</h1>
+                    </div>
+                    
+                    <!-- Main Content -->
+                    <div class="mb-8">
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">YOUR GATEWAY TO TECH RESOURCES</h2>
+                        <p class="text-gray-600 mb-2">
+                            The official hub for Georgia Tech students
+                        </p>
+                        <p class="text-gray-600 mb-4">
+                            Access academic tools, campus services, and student resources
+                            all in one convenient platform designed specifically for Yellow Jackets.
+                        </p>
+                        <p class="text-yellow-600 font-semibold mb-6">Begin your Tech journey today!</p>
+                    </div>
+                    
+                    <!-- Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="/chat" class="bg-yellow-400 px-6 py-3 rounded-lg shadow-md text-white font-semibold text-center hover:bg-yellow-500 transition">
+                            Launch Assistant
+                        </a>
+                        <a href="/resources" class="border border-yellow-400 px-6 py-3 rounded-lg text-yellow-500 font-semibold text-center hover:bg-yellow-50 transition">
+                         Explore Resources
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
