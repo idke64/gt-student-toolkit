@@ -1,18 +1,115 @@
 ---
-const { title, id } = Astro.props;
+import Sidebar from './Sidebar.astro';
+import Message from './Message.astro';
+import Response from './Response.astro';
+import ChatInput from './ChatInput.astro';
 
+const { slug, isNewChat } = Astro.props;
+
+const topicData = {
+  'gt-barcelona': {
+    title: "GT Barcelona Program",
+    info: {
+      points: [
+        "8-week summer program",
+        "6 credit hours",
+        "Cultural excursions"
+      ]
+    }
+  },
+  'default': {
+    title: "General Chat",
+    info: {
+      points: [
+        "Ask me anything about Georgia Tech",
+        "I can help with academic questions",
+        "Available 24/7 to assist you"
+      ]
+    }
+  }
+};
+
+const currentTopic = slug && topicData[slug] ? topicData[slug] : topicData.default;
 ---
 
-<a href=`/chat/${id}` class="w-full rounded bg-surface-200 h-9 hover:bg-neutral-100 duration-200 px-2">
-    <div class="flex items-center gap-x-2 h-full">
-        <div class="mt-0.5">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5.66683 12.6668H5.3335C2.66683 12.6668 1.3335 12.0002 1.3335 8.66683V5.3335C1.3335 2.66683 2.66683 1.3335 5.3335 1.3335H10.6668C13.3335 1.3335 14.6668 2.66683 14.6668 5.3335V8.66683C14.6668 11.3335 13.3335 12.6668 10.6668 12.6668H10.3335C10.1268 12.6668 9.92683 12.7668 9.80016 12.9335L8.80016 14.2668C8.36016 14.8535 7.64016 14.8535 7.20016 14.2668L6.20016 12.9335C6.0935 12.7868 5.84683 12.6668 5.66683 12.6668Z" stroke="#0F172A" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M10.6641 7.33333H10.6701" stroke="#0F172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M7.99715 7.33333H8.00314" stroke="#0F172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M5.32967 7.33333H5.33566" stroke="#0F172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+<div class="flex h-screen bg-gray-50">
+  <Sidebar activeSlug={slug} />
+  
+  <div class="flex-1 flex flex-col">
+    <header class="p-4 border-b border-gray-200 bg-white">
+      <h1 class="text-xl font-bold">
+        {isNewChat ? 'New Chat' : currentTopic.title}
+      </h1>
+    </header>
+
+    <div class="flex-1 overflow-y-auto p-4" id="chat-container">
+      {isNewChat ? (
+        <div class="text-center py-8 text-gray-500">
+          Start a new conversation
         </div>
-        <div>{title}</div>
+      ) : (
+        <Response title="Information">
+          <ul class="list-disc pl-5 space-y-1">
+            {currentTopic.info.points.map(point => (
+              <li>{point}</li>
+            ))}
+          </ul>
+        </Response>
+      )}
     </div>
-</a>
+
+    <ChatInput isNewChat={isNewChat} />
+  </div>
+</div>
+
+<script is:inline>
+document.addEventListener('DOMContentLoaded', () => {
+  const chatContainer = document.getElementById('chat-container');
+  const inputForm = document.querySelector('form');
+  
+  inputForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const input = e.target.querySelector('input');
+    const message = input.value.trim();
+    
+    if (!message) return;
+    
+    // Clear "start new conversation" message if present
+    if (document.querySelector('.text-center.py-8')) {
+      chatContainer.innerHTML = '';
+    }
+    
+    // Add user message
+    const userMsg = document.createElement('div');
+    userMsg.className = 'flex justify-end mb-4';
+    userMsg.innerHTML = `
+      <div class="bg-blue-500 text-white p-3 rounded-lg max-w-[75%]">
+        ${message}
+      </div>
+    `;
+    chatContainer.appendChild(userMsg);
+    
+    // Clear input
+    input.value = '';
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+    
+    // If this was a new chat, update URL without reload
+    if (${isNewChat}) {
+      history.replaceState({}, '', '/chat/general-chat');
+    }
+    
+    // Simulate bot response
+    setTimeout(() => {
+      const botMsg = document.createElement('div');
+      botMsg.className = 'flex justify-start mb-4';
+      botMsg.innerHTML = `
+        <div class="bg-gray-100 p-3 rounded-lg max-w-[75%]">
+          Thanks for your message! How can I assist you further?
+        </div>
+      `;
+      chatContainer.appendChild(botMsg);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }, 800);
+  });
+});
+</script>

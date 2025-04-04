@@ -1,21 +1,33 @@
-<nav class="h-full fixed w-64 bg-surface-200 shadow border-t border-border">
-    <div class="flex flex-col justify-between h-[calc(100vh-56px)]">
-        <div class="flex flex-col gap-y-4 p-4">
-            <div class="flex gap-x-2 justify-center items-start py-2">
-                <h5>GT Student Toolkit</h5>
-            </div>
-            <button class="h-9 btn-primary">+ New Chat</button>
-            <hr/>
-            <div class="flex justify-between items-center"><p>Your conversations</p><button class="btn-secondary">Clear all</button></div>
-            <hr/>
-            <div class="flex flex-col gap-y-3">
-                <slot />
-            </div>
-        </div>
-        <div class="flex flex-col gap-y-3 p-4">
-            <button class="rounded-full flex border-border border px-3 h-9 items-center">Settings</button>
-            <button class="rounded-full flex border-border border px-3 h-9 items-center">User</button>
-        </div>
-    </div>
-    
-</nav>
+---
+const { activeSlug } = Astro.props;
+---
+
+<aside class="w-64 bg-white border-r border-gray-200 p-4">
+  <div class="mb-6">
+    <a 
+      href="/chat/new" 
+      class={`block w-full text-center bg-yellow-400 hover:bg-yellow-500 text-black py-2 px-4 rounded-lg shadow-md transition-colors ${
+        !activeSlug ? 'ring-2 ring-yellow-600' : ''
+      }`}
+    >
+      + New Chat
+    </a>
+  </div>
+
+  <div class="flex justify-between items-center mb-4">
+    <h2 class="text-lg font-semibold">Conversations</h2>
+  </div>
+
+  <nav class="space-y-2">
+    <a
+      href="/chat/gt-barcelona"
+      class={`flex items-center gap-3 p-2 rounded-lg ${
+        activeSlug === 'gt-barcelona' 
+          ? 'bg-yellow-100 text-yellow-800 border-l-4 border-yellow-400' 
+          : 'hover:bg-gray-100'
+      }`}
+    >
+      <span>GT Barcelona</span>
+    </a>
+  </nav>
+</aside>
