@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --primary-100: 236, 209, 71;
   --primary-200: 231, 216, 9;
@@ -52,15 +56,19 @@
 }
 
 .btn-primary {
-  @apply rounded-full bg-primary-100 text-white hover:bg-primary-100/70 duration-200 font-semibold active:scale-90 text-sm flex items-center justify-center;
+  @apply rounded-md bg-primary-100 text-white hover:bg-yellow-500 duration-200 font-semibold active:scale-90 text-sm flex items-center justify-center shadow;
 }
 
 .btn-secondary {
-  @apply text-primary-200 text-sm hover:text-primary-200/70 duration-200 font-semibold flex items-center justify-center;
+  @apply text-primary-200 text-sm border-2 border-primary-100 flex items-center justify-center rounded-md;
+}
+
+.btn-tertiary {
+  @apply text-primary-200 text-sm hover:text-yellow-500 duration-200 font-semibold flex items-center justify-center;
 }
 
 .nav-link {
-  @apply relative text-fg-300 text-sm after:absolute after:h-0.5 after:w-0 after:bg-fg-300 after:rounded-full after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 hover:after:w-full after:bg-primary-300;
+  @apply relative text-fg-300 text-sm after:absolute after:h-0.5 after:w-0 after:rounded-full after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 hover:after:w-full after:bg-primary-100;
 }
 
 html {
@@ -95,24 +103,11 @@ hr {
 .bg-gt-primary {
   background-color: var(--gt-primary);
 }
+
 .text-gt-primary {
   color: var(--gt-primary);
 }
-.border-gt-primary {
-  border-color: var(--gt-primary);
-}
 
-footer {
-  position: relative;
-  z-index: 10;
-}
-
-.bg-gt-primary {
-  background-color: var(--gt-primary);
-}
-.text-gt-primary {
-  color: var(--gt-primary);
-}
 .border-gt-primary {
   border-color: var(--gt-primary);
 }

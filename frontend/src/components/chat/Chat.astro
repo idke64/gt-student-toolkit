@@ -32,7 +32,7 @@ const topicData = {
 const currentTopic = slug && topicData[slug] ? topicData[slug] : topicData.default;
 ---
 
-<div class="flex h-screen bg-gray-50">
+<div class="flex h-[calc(100vh-68px)] mt-[68px] bg-gray-50">
   <Sidebar activeSlug={slug} />
   
   <div class="flex-1 flex flex-col">
@@ -50,7 +50,7 @@ const currentTopic = slug && topicData[slug] ? topicData[slug] : topicData.defau
       ) : (
         <Response title="Information">
           <ul class="list-disc pl-5 space-y-1">
-            {currentTopic.info.points.map(point => (
+            {currentTopic.info.points.map((point) => (
               <li>{point}</li>
             ))}
           </ul>
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     chatContainer.scrollTop = chatContainer.scrollHeight;
     
     // If this was a new chat, update URL without reload
-    if (${isNewChat}) {
+    if (isNewChat) {
       history.replaceState({}, '', '/chat/general-chat');
     }
     

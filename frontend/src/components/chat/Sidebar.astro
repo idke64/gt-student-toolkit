@@ -4,14 +4,7 @@ const { activeSlug } = Astro.props;
 
 <aside class="w-64 bg-white border-r border-gray-200 p-4">
   <div class="mb-6">
-    <a 
-      href="/chat/new" 
-      class={`block w-full text-center bg-yellow-400 hover:bg-yellow-500 text-black py-2 px-4 rounded-lg shadow-md transition-colors ${
-        !activeSlug ? 'ring-2 ring-yellow-600' : ''
-      }`}
-    >
-      + New Chat
-    </a>
+    <button class="btn-primary w-full py-2">New Chat +</button>
   </div>
 
   <div class="flex justify-between items-center mb-4">
@@ -21,10 +14,10 @@ const { activeSlug } = Astro.props;
   <nav class="space-y-2">
     <a
       href="/chat/gt-barcelona"
-      class={`flex items-center gap-3 p-2 rounded-lg ${
+      class={`flex items-center gap-3 p-2 rounded border-l-[6px] duration-200 ${
         activeSlug === 'gt-barcelona' 
-          ? 'bg-yellow-100 text-yellow-800 border-l-4 border-yellow-400' 
-          : 'hover:bg-gray-100'
+          ? 'bg-yellow-100 text-yellow-800 border-yellow-400' 
+          : 'hover:bg-gray-100 border-transparent'
       }`}
     >
       <span>GT Barcelona</span>

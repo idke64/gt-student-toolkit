@@ -1,5 +1,7 @@
 ---
 import Navbar from '@components/ui/Navbar.astro';
+import Layout from '@layouts/Layout.astro';
+import '@styles/global.css';
 ---
 
 <!doctype html>
@@ -11,8 +13,7 @@ import Navbar from '@components/ui/Navbar.astro';
         <meta name="generator" content={Astro.generator} />
         <title>GT Student Toolkit</title>
     </head>
-    <body class="bg-gray-50">
-        <Navbar />
+    <Layout>
         <div class="flex items-center justify-center min-h-[calc(100vh-56px)] p-4">
             <div class="bg-white w-full max-w-6xl flex shadow-lg rounded-lg overflow-hidden">
                 <!-- Left side with image -->
@@ -55,5 +56,5 @@ import Navbar from '@components/ui/Navbar.astro';
                 </div>
             </div>
         </div>
-    </body>
+    </Layout>
 </html>

@@ -3,7 +3,7 @@ const { title, type } = Astro.props;
 ---
 
 <div class={`p-4 rounded-lg ${
-  type === 'info' 
+  type != 'info' 
     ? 'bg-white border border-gray-200' 
     : 'bg-gt-light border-l-4 border-gt-accent'
 }`}>
