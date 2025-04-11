@@ -1,5 +1,5 @@
 ---
-import Navbar from '@components/ui/Navbar.astro';
+import Navbar from '@components/ui/Navbar';
 import Footer from '@components/ui/Footer.astro';
 
 const { title } = Astro.props;
@@ -13,7 +13,7 @@ const { title } = Astro.props;
   <title>{title} | GT Toolkit</title>
 </head>
 <body class="bg-gray-50 flex flex-col min-h-screen">
-  <Navbar />
+  <Navbar client:load />
   
   <main class="h-screen">
     <slot />

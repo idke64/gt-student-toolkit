@@ -17,7 +17,6 @@ export default defineConfig({
         "@layouts": path.resolve("./src/layouts"),
         "@styles": path.resolve("./src/styles"),
         "@pages": path.resolve("./src/pages"),
-        "@firebase": path.resolve("./src/firebase"),
       },
     },
   },

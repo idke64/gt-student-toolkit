@@ -1,6 +1,5 @@
 ---
 import Sidebar from './Sidebar.astro';
-import Message from './Message.astro';
 import Response from './Response.astro';
 import ChatInput from './ChatInput.astro';
 
@@ -50,7 +49,7 @@ const currentTopic = slug && topicData[slug] ? topicData[slug] : topicData.defau
       ) : (
         <Response title="Information">
           <ul class="list-disc pl-5 space-y-1">
-            {currentTopic.info.points.map((point) => (
+            {currentTopic.info.points.map((point: any) => (
               <li>{point}</li>
             ))}
           </ul>
