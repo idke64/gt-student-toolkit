@@ -5,6 +5,7 @@ import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import path from "node:path";
 
+// https://astro.build/config
 export default defineConfig({
   output: "server",
   integrations: [react(), tailwind({})],

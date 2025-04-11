@@ -1,0 +1,44 @@
+Bachelor of Science in Computer Science with Threads
+Focus: building on a base of fundamentals in programming and computational theory to provide a solid foundation of knowledge and skills for applying digital processes effectively to issues of broad interest in a global society.
+
+The undergraduate degree in computer science (CS) offered by the College of Computing provides a solid foundation of knowledge and skills for applying digital processes effectively to issues of broad interest in a global society. Our program is based on a unique concept, Threads™ , a significant College of Computing innovation in undergraduate CS education. The curriculum builds on a base of fundamentals in programming and computational theory to allow each student the opportunity to explore a variety of computing paths in depth. There are nine Threads, each providing a focused journey through a broad spectrum of course offerings at Georgia Tech in preparation for a distinctive future in a changing and interconnected world. Each student selects two Threads to fulfill the requirements for an accredited Bachelor of Science degree in computer science. It is at the intersection of the two paths that the unique synergistic value of this educational experience is realized. Graduates will leave the College of Computing fully aware of the limitless potential of their dynamic discipline and be able to adapt and continuously add value to society throughout their careers.
+
+The Threads™ represent partial paths through the curriculum. Thus, a student weaves a degree from these Threads. Students are not forced to make Thread decisions very early in their academic careers; however, they may if they want. We define the Threads so they are flexible enough to allow for a variety of technical and creative experiences. Threads are coherent enough that students develop computing skills even if their focus shifts as they go along.
+
+The CS curriculum also offers opportunities in undergraduate research and international study. In addition to the standard four-year plan, a five-year cooperative plan is offered for students who wish to combine their academic education with industry experience.
+
+The undergraduate program requires:
+
+a total of 124 credit hours for graduation, plus
+a two-hour Wellness course.
+With the exception of free electives, all Bachelor of Science degree coursework must be taken on a letter-grade basis.
+Up to six hours of free electives may be taken on a pass/fail basis.
+No 1000- or 2000-level HPS hours or precalculus hours (currently MATH 1113) may be used as free electives.
+No course that covers the same material as other courses in a student's plan of study can be used as a free elective.
+All required CS courses, whether Thread or non-Thread, must be completed with a C or better to be counted toward degree requirements.
+All courses listed as required for a Thread, whether CS or non-CS, must be completed with a C or better to be counted toward degree requirements.
+The College of Computing Defines Nine Threads
+A Thread provides an intuitive, flexible, and mutually strengthening set of courses that allows a student to craft a distinctive future in an area that is certain to have societal value in the emerging world. A Thread provides a skill and credential basis that allows graduates to create value in ways beyond what would be possible with only a narrowly focused tool set.
+
+Choose any two threads to create your own path and special variation on an area of study.
+
+Computing and Cybersecurity and Privacy: building security and privacy in computing systems to fortify them against attacks from malicious actors and other disruptions.
+Computing and Devices: creating devices embedded in physical objects that interact in the physical world
+Computing and Information Internetworks: representing, transforming, transmitting, and presenting information
+Computing and Intelligence: building top-to-bottom models of human-level intelligence
+Computing and Media: building systems in order to exploit computing's abilities to provide creative outlets
+Computing and Modeling - Simulation: representing natural and physical processes
+Computing and People: designing, building, and evaluating systems that treat the human as a central component
+Computing and Systems and Architecture : creating computer architectures, systems, and languages
+Computing and Theory: theoretical foundations underlying a wide range of computing disciplines
+Threads™ are defined as partial paths through the course offerings of the Institute. Students construct their own personalized computer science degree by weaving through two Threads™. Each Thread™ is about 2/3 of a degree, but with Thread™ arithmetic, since there's so much overlap, 2/3 + 2/3 = 1. Each pair of Threads™ fulfills the requirements for an accredited Bachelor of Science degree in computer science.
+
+The Power of One Thread
+Are you a computationalist who is interested in the expressive arts (telling stories, making games, creating emotional experiences)? Join the Computing and Media Thread. Here you'll see courses on topics ranging from computational graphics to Hamlet, from human perception to interactive fiction engines.
+
+Are you a computationalist who is interested in placing intelligence in physical objects like robots, airplanes, or cell phones? Join the Computing and Devices Thread. Here you'll see courses on everything from computational sensors to dealing with noisy data, from real-time operating systems to mobile power issues and computational autonomy.
+
+Weaving Two Threads Together - A Leap
+Are you interested in computer security? Then perhaps choose Computing and Information to learn how data is stored, retrieved, encoded, transmitted, etc. And perhaps also choose Computing and People to learn how people use technology, how to run experiments with human subjects, etc. The kind of person you will become is the kind of person who will be able to invent and build secure systems that are usable by people.
+
+For more information about the BS CS undergraduate program or the College of Computing, visit The College of Computing website.
