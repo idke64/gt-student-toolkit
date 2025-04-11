@@ -1,1 +1,66 @@
 @import "tailwindcss";
+
+:root {
+  --surface-100: 240, 240, 240;
+  --surface-200: 254, 254, 254;
+  --surface-300: 230, 230, 230;
+  --border: 230, 230, 230;
+  --fg-100: 0, 0, 0;
+  --fg-200: 47, 51, 54;
+  --fg-300: 85, 85, 95;
+  --fg-400: 255, 255, 255;
+  --themeicon: 114, 150, 171;
+  --btn-hover: 240, 240, 240;
+}
+
+.light {
+  --surface-100: 240, 240, 240;
+  --surface-200: 254, 254, 254;
+  --surface-300: 230, 230, 230;
+  --border: 230, 230, 230;
+  --fg-100: 0, 0, 0;
+  --fg-200: 47, 51, 54;
+  --fg-300: 85, 85, 95;
+  --fg-400: 255, 255, 255;
+  --themeicon: 114, 150, 171;
+  --btn-hover: 240, 240, 240;
+}
+
+.dark {
+  --surface-100: 45, 45, 50;
+  --surface-200: 50, 50, 56;
+  --surface-300: 30, 30, 30;
+  --border: 70, 70, 70;
+  --fg-100: 255, 255, 255;
+  --fg-200: 255, 255, 255;
+  --fg-300: 230, 230, 230;
+  --fg-400: 47, 51, 54;
+  --themeicon: 255, 207, 57;
+  --btn-hover: 65, 65, 65;
+}
+
+html {
+  @apply overflow-x-hidden overflow-y-scroll bg-[rgba(var(--surface-100))];
+}
+
+h1 {
+  @apply text-6xl font-bold max-sm:text-4xl;
+}
+h2 {
+  @apply text-4xl font-bold max-sm:text-3xl;
+}
+h3 {
+  @apply text-3xl font-bold max-sm:text-2xl;
+}
+h4 {
+  @apply text-2xl font-bold;
+}
+h5 {
+  @apply text-xl font-medium;
+}
+h6 {
+  @apply text-lg font-medium;
+}
+p {
+  @apply text-sm;
+}
