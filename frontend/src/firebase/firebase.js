@@ -1,22 +1,19 @@
 // Import Firebase SDKs
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { getFirestore, setDoc, doc } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.FIREBASE_API_KEY,
-  authDomain: import.meta.env.FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.FIREBASE_APP_ID,
-  measurementId: import.meta.env.FIREBASE_MEASUREMENT_ID
+  apiKey: "AIzaSyDl4w4TKuiSkhrL03u2oD1pYHLkT1F1NjE",
+  authDomain: "authentication-29443.firebaseapp.com",
+  projectId: "authentication-29443",
+  storageBucket: "authentication-29443.firebasestorage.app",
+  messagingSenderId: "760140940581",
+  appId: "1:760140940581:web:562e1ced8bdc1843abc6cc",
+  measurementId: "G-H6J2VX5Z46",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Get instances of Firebase Authentication and Firestore
 const auth = getAuth(app);
 
 export { auth };

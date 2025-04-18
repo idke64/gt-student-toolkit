@@ -7,24 +7,24 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          100: "rgb(var(--primary-100) / <alpha-value>)",
-          200: "rgb(var(--primary-200) / <alpha-value>)",
-          300: "rgb(var(--primary-300) / <alpha-value>)",
+          100: "rgb(var(--primary-100))",
+          200: "rgb(var(--primary-200))",
+          300: "rgb(var(--primary-300))",
         },
         surface: {
-          100: "rgb(var(--surface-100) / <alpha-value>)",
-          200: "rgb(var(--surface-200) / <alpha-value>)",
-          300: "rgb(var(--surface-300) / <alpha-value>)",
+          100: "rgb(var(--surface-100))",
+          200: "rgb(var(--surface-200))",
+          300: "rgb(var(--surface-300))",
         },
-        border: "rgb(var(--border) / <alpha-value>)",
+        border: "rgb(var(--border))",
         fg: {
-          100: "rgb(var(--fg-100) / <alpha-value>)",
-          200: "rgb(var(--fg-200) / <alpha-value>)",
-          300: "rgb(var(--fg-300) / <alpha-value>)",
-          400: "rgb(var(--fg-400) / <alpha-value>)",
+          100: "rgb(var(--fg-100))",
+          200: "rgb(var(--fg-200))",
+          300: "rgb(var(--fg-300))",
+          400: "rgb(var(--fg-400))",
         },
-        themeicon: "rgb(var(--themeicon) / <alpha-value>)",
-        "btn-hover": "rgb(var(--btn-hover) / <alpha-value>)",
+        themeicon: "rgb(var(--themeicon))",
+        "btn-hover": "rgb(var(--btn-hover))",
       },
       boxShadow: {
         DEFAULT: "0 2px 8px rgba(0, 0, 0, 0.1)",
