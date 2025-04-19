@@ -1,3 +1,5 @@
+import requests
+import json
 import os
 import torch
 import glob
@@ -10,6 +12,9 @@ from transformers import AutoTokenizer
 from langchain.text_splitter import CharacterTextSplitter
 from sklearn.metrics.pairwise import cosine_similarity
 from transformers import AutoModelForCausalLM, AutoTokenizer
+from dotenv import load_dotenv
+
+load_dotenv()
 
 resources=[]
 
@@ -136,9 +141,15 @@ def retrieve_relevant_chunks(query, resources, embedding_model, top_k=3):
     all_results.sort(key=lambda x: x['score'], reverse=True)
     return all_results[:top_k]
 
-def answer_question(query, resources, embedding_model, llm_model_name="microsoft/phi-3-mini-4k-instruct"):
-    """Answer a question using RAG with a fast, high-quality model"""
+def answer_question(query, resources, embedding_model, api_key=None, model="anthropic/claude-3-haiku"):
+    """Answer a question using RAG with OpenRouter API"""
     print(f"Answering question: {query}")
+    
+    # Get API key from environment variable if not provided
+    if not api_key:
+        api_key = os.environ.get("OPENROUTER_API_KEY")
+        if not api_key:
+            raise ValueError("OpenRouter API key not provided. Set OPENROUTER_API_KEY environment variable.")
     
     # Retrieve relevant chunks
     relevant_chunks = retrieve_relevant_chunks(query, resources, embedding_model, top_k=5)
@@ -150,54 +161,52 @@ def answer_question(query, resources, embedding_model, llm_model_name="microsoft
     
     print(f"Found {len(relevant_chunks)} relevant chunks")
     
-    # Load model and tokenizer with GPU optimizations
-    print(f"Loading LLM: {llm_model_name}")
-    tokenizer = AutoTokenizer.from_pretrained(llm_model_name)
-    model = AutoModelForCausalLM.from_pretrained(
-        llm_model_name,
-        torch_dtype=torch.float16,  # Use half precision for speed
-        device_map="auto"           # Efficiently map to GPU
-    )
+    # Format prompt for API request
+    prompt = f"""You are a helpful AI assistant with expertise in education and academic programs. 
     
-    # Format prompt for Phi-3-mini
-    prompt = f"""<|system|>
-You are a helpful AI assistant with expertise in education and academic programs. Provide comprehensive, 
-detailed answers based only on the context provided.
-
-<|user|>
 Based on these documents:
 
 {context}
 
 Answer this question in detail: {query}
-
-<|assistant|>"""
+"""
     
-    print("Generating answer...")
-    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
+    print(f"Generating answer using {model}...")
     
-    # Generation parameters optimized for speed while maintaining quality
-    outputs = model.generate(
-        inputs.input_ids,
-        max_new_tokens=512,
-        temperature=0.7,         # Good balance of creativity and factuality
-        top_p=0.9,               # Nucleus sampling for natural text
-        do_sample=True,          
-        repetition_penalty=1.15,  # Reduce repetition
-        num_beams=1,             # Greedy decoding for speed
-        pad_token_id=tokenizer.eos_token_id
-    )
+    # Set up the API request
+    url = "https://openrouter.ai/api/v1/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
     
-    answer = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    data = {
+        "model": model,
+        "messages": [
+            {"role": "system", "content": "You are a helpful AI assistant with expertise in education and academic programs."},
+            {"role": "user", "content": prompt}
+        ],
+        "max_tokens": 1024
+    }
     
-    # Extract just the assistant's response if needed
-    if "<|assistant|>" in answer:
-        answer = answer.split("<|assistant|>")[1].strip()
+    try:
+        # Make the API request
+        response = requests.post(url, headers=headers, data=json.dumps(data))
+        response.raise_for_status()  # Raise exception for HTTP errors
+        
+        # Parse the response
+        result = response.json()
+        answer = result["choices"][0]["message"]["content"]
+        
+    except Exception as e:
+        print(f"Error using OpenRouter API: {e}")
+        answer = f"Error generating response: {str(e)}"
     
     return {
         "query": query,
         "answer": answer,
-        "sources": [{"name": r["resource_name"], "score": r["score"]} for r in relevant_chunks]
+        "sources": [{"name": r["resource_name"], "score": r["score"]} for r in relevant_chunks],
+        "model": model
     }
 
 def main():
