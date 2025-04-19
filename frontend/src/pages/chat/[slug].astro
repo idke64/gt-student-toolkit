@@ -1,13 +1,11 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import Chat from '@components/chat/Chat.astro';
+import ChatContainer from '@/components/chat/ChatContainer.jsx';
 import '@styles/global.css';
 
-
-const { slug } = Astro.params;
-const isNewChat = !slug || slug === 'new';
+let { slug } = Astro.params;
 ---
 
-<Layout title={isNewChat ? 'New Chat' : `Chat - ${slug}`}>
-  <Chat slug={isNewChat ? null : slug} isNewChat={isNewChat} />
+<Layout title={`Chat`}>
+  <ChatContainer client:load id={slug}/>
 </Layout>

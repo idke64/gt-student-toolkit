@@ -1,0 +1,8 @@
+websockets>=10.0
+torch>=2.0.0
+transformers>=4.30.0
+langchain>=0.0.267
+langchain-huggingface>=0.0.5
+accelerate>=0.20.3
+scikit-learn>=1.0.2
+numpy>=1.24.0

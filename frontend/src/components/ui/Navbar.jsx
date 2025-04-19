@@ -28,29 +28,32 @@ export default function Navbar() {
 
   return (
     <nav className="bg-white shadow-md px-8 fixed w-full">
-      <div className="flex justify-between h-16">
-        <div className="flex items-center">
-          <a href="/" className="text-xl font-bold text-gray-900">
-            GT Toolkit
+      <div className="flex justify-between h-16 relative">
+        <div className="flex items-center gap-x-8">
+          <a
+            href="/"
+            className="text-xl font-bold text-gray-900 hover:bg-neutral-100 rounded py-1 px-2"
+          >
+            <span className="text-primary-200">GT</span> Student Toolkit
           </a>
         </div>
+        <div className="flex items-center gap-x-2 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
+          {links.map(
+            (link) =>
+              ((link.protected && isAuth) || !link.protected) && (
+                <a
+                  key={link.path}
+                  href={link.path}
+                  className={`nav-link ${
+                    currPath === link.path ? "after:w-[60%] bg-neutral-100" : ""
+                  }`}
+                >
+                  {link.name}
+                </a>
+              )
+          )}
+        </div>
         <div className="flex items-center space-x-6">
-          <div className="flex items-center gap-x-4">
-            {links.map(
-              (link) =>
-                ((link.protected && isAuth) || !link.protected) && (
-                  <a
-                    key={link.path}
-                    href={link.path}
-                    className={`nav-link ${
-                      currPath === link.path ? "after:w-full" : ""
-                    }`}
-                  >
-                    {link.name}
-                  </a>
-                )
-            )}
-          </div>
           <div className="flex items-center gap-x-3">
             {$isAuth ? (
               <>

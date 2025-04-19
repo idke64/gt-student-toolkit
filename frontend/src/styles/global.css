@@ -68,11 +68,11 @@
 }
 
 .btn-red {
-  @apply text-red-500 text-sm border-2 border-red-500 rounded-md hover:bg-red-100 hover:text-white duration-200 font-semibold flex items-center justify-center disabled:cursor-not-allowed;
+  @apply text-red-500 text-sm border-2 border-red-500 rounded-md hover:bg-red-100 duration-200 font-semibold flex items-center justify-center disabled:cursor-not-allowed;
 }
 
 .nav-link {
-  @apply relative text-fg-300 text-sm after:absolute after:h-0.5 after:w-0 after:rounded-full after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 hover:after:w-full after:bg-primary-100;
+  @apply relative text-fg-300 text-sm after:absolute after:h-0.5 after:w-0 after:rounded-full after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-primary-100 hover:bg-neutral-100 rounded py-1 px-2;
 }
 
 .text-input {

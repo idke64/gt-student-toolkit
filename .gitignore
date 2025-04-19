@@ -27,3 +27,15 @@ bun.lockb
 school_resources_model
 vector_db.pkl
 *.pkl
+
+# python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# virtual environment
+venv/
+
+# Log files
+*.log
+.logs/

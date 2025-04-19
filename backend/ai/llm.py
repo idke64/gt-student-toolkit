@@ -6,9 +6,8 @@ import numpy as np
 import pickle
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import AutoTokenizer
 from langchain.text_splitter import CharacterTextSplitter
-from langchain_huggingface import HuggingFaceEmbeddings
 from sklearn.metrics.pairwise import cosine_similarity
 from transformers import AutoModelForCausalLM, AutoTokenizer
 

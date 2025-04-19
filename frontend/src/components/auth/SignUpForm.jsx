@@ -5,6 +5,7 @@ import { useStore } from "@nanostores/react";
 export default function SignUpForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const [errorMsg, setErrorMsg] = useState("");
@@ -23,8 +24,8 @@ export default function SignUpForm() {
     setErrorMsg("");
 
     try {
-      await signUp(email, password);
-      window.location.href = "/chat";
+      await signUp(name, email, password);
+      // window.location.href = "/chat";
     } catch (error) {
       setErrorMsg("Failed to sign up. Please try again.");
     } finally {
@@ -34,6 +35,19 @@ export default function SignUpForm() {
 
   return (
     <form className="space-y-4" onSubmit={handleSignUp}>
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">
+          Username
+        </label>
+        <input
+          type="name"
+          className="text-input"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+      </div>
+
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
           Email
